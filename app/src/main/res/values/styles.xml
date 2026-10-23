@@ -1,0 +1,34 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#9EE9D2</item>
+        <item name="android:statusBarColor">#0A0F15</item>
+        <item name="android:navigationBarColor">#0A0F15</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#0A0F15</item>
+    </style>
+    <style name="ProxyTheme" parent="android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="WidgetActionWide">
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:padding">2dp</item>
+    </style>
+    <style name="WidgetActionCompact">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+</resources>

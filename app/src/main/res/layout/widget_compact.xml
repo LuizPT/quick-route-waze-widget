@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/widget_card"
+    tools:ignore="NestedWeights">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/widget_title"
+            android:textColor="@color/widget_text"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_subtitle"
+            android:textColor="@color/widget_muted"
+            android:textSize="11sp"
+            android:letterSpacing="0.12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+        <TextView android:id="@+id/action_home" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="4dp" android:background="@drawable/widget_tile_home" android:drawableStart="@drawable/ic_home" android:text="@string/widget_home" android:contentDescription="@string/widget_home" android:textColor="@color/widget_text" />
+        <TextView android:id="@+id/action_work" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="4dp" android:background="@drawable/widget_tile_primary" android:drawableStart="@drawable/ic_work" android:text="@string/widget_work" android:contentDescription="@string/widget_work" android:textColor="@color/widget_text" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+        <TextView android:id="@+id/action_favorites" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="4dp" android:background="@drawable/widget_tile_home" android:drawableStart="@drawable/ic_favorites" android:text="@string/widget_favorites" android:contentDescription="@string/widget_favorites" android:textColor="@color/widget_text" />
+        <TextView android:id="@+id/action_open" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="4dp" android:background="@drawable/widget_tile_primary" android:drawableStart="@drawable/ic_open" android:text="@string/widget_open" android:contentDescription="@string/widget_open" android:textColor="@color/widget_text" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+        <TextView android:id="@+id/action_search" style="@style/WidgetActionCompact" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_tile" android:drawableStart="@drawable/ic_search" android:text="@string/widget_search" android:contentDescription="@string/widget_search" android:textColor="@color/widget_text" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Rota Rápida</string>
+    <string name="header_subtitle">Atalhos de navegação</string>
+    <string name="intro_eyebrow">NAVEGAÇÃO DIRETA</string>
+    <string name="intro_title">O seu próximo destino, a um toque.</string>
+    <string name="intro_body">Aceda aos favoritos Casa e Trabalho guardados no Waze ou abra a aplicação para continuar.</string>
+    <string name="destinations_heading">DESTINOS GUARDADOS NO WAZE</string>
+    <string name="waze_heading">WAZE</string>
+    <string name="favorite_note">Guarde Casa e Trabalho em Waze › Guardados. Favoritos abre o Waze; escolha Guardados para ver a lista. A aplicação não lê nem armazena destinos.</string>
+    <string name="independent_notice">Aplicação independente. Não afiliada com a Google ou o Waze.</string>
+    <string name="waze_ready">Waze disponível neste dispositivo</string>
+    <string name="waze_missing">Waze não encontrado</string>
+    <string name="waze_missing_detail">Instale o Waze para usar os atalhos de navegação. Os botões e o widget continuam disponíveis.</string>
+    <string name="waze_missing_toast">O Waze não está instalado. Instale-o para usar este atalho.</string>
+    <string name="waze_routing_issue">Confirme no Waze se o favorito escolhido está guardado e tente novamente.</string>
+    <string name="search_hint">O Waze não disponibiliza um link público para abrir a pesquisa. Toque na lupa dentro da aplicação.</string>
+    <string name="favorites_hint">No Waze, abra Guardados para consultar os favoritos.</string>
+    <string name="widget_title">Rota Rápida</string>
+    <string name="widget_subtitle">ATALHOS WAZE</string>
+    <string name="widget_home">Casa</string>
+    <string name="widget_work">Trabalho</string>
+    <string name="widget_favorites">Favoritos</string>
+    <string name="widget_open">Abrir</string>
+    <string name="widget_search">Pesquisar</string>
+    <string name="widget_description">Casa, Trabalho, Favoritos, Abrir o Waze e Pesquisa</string>
+</resources>

@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'pt.rotarapida.waze'
+    compileSdk 37
+
+    defaultConfig {
+        applicationId 'pt.rotarapida.waze'
+        minSdk 21
+        targetSdk 37
+        versionCode 1
+        versionName '1.0.0'
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+
+    signingConfigs {
+        release {
+            def signingStore = System.getenv('ROTA_RAPIDA_KEYSTORE')
+            if (signingStore) {
+                storeFile file(signingStore)
+                storePassword System.getenv('ROTA_RAPIDA_STORE_PASSWORD')
+                keyAlias System.getenv('ROTA_RAPIDA_KEY_ALIAS')
+                keyPassword System.getenv('ROTA_RAPIDA_KEY_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            if (System.getenv('ROTA_RAPIDA_KEYSTORE')) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
