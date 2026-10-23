@@ -55,10 +55,10 @@ public final class WidgetPreviewActivity extends Activity {
         widget.draw(new Canvas(bitmap));
 
         ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.DISPLAY_NAME, "Rota-Rapida-widget-cropped.png");
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, "Quick-Route-widget-cropped.png");
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
         values.put(MediaStore.Images.Media.RELATIVE_PATH,
-                Environment.DIRECTORY_PICTURES + "/RotaRapida");
+                Environment.DIRECTORY_PICTURES + "/QuickRoute");
         Uri image = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         if (image == null) return;
         try (OutputStream output = getContentResolver().openOutputStream(image)) {

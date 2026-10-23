@@ -37,7 +37,7 @@ final class WazeLauncher {
         }
 
         Intent launch = context.getPackageManager().getLaunchIntentForPackage(WAZE_PACKAGE);
-        if (launch == null) throw new ActivityNotFoundException("Waze não está instalado");
+        if (launch == null) throw new ActivityNotFoundException("Waze is not installed");
         launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return launch;
     }

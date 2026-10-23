@@ -3,6 +3,6 @@
         <activity
             android:name=".WidgetPreviewActivity"
             android:exported="true"
-            android:label="Widget Rota Rápida" />
+            android:label="Quick Route Widget" />
     </application>
 </manifest>

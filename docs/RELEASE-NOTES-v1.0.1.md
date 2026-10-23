@@ -1,10 +1,10 @@
-# Rota Rápida 1.0.1
+# Quick Route 1.0.1
 
-Atualização visual do widget e da aplicação com identidade de navegação inspirada na paleta ciano do Waze.
+Visual update to the widget and app, adding a navigation identity inspired by Waze's cyan palette.
 
-- Corrigido o alinhamento dos ícones e rótulos nos layouts largo e compacto.
-- Uniformizados os cartões do widget, com ícones ciano e marca de rota no cabeçalho.
-- Atualizados o símbolo da aplicação, os botões e a paleta do ecrã inicial.
-- Mantidos os cinco atalhos, incluindo Favoritos, com os mesmos destinos e comportamento.
+- Fixed icon and label alignment in compact and wide layouts.
+- Standardized widget cards, cyan icons, and the route mark in the header.
+- Updated the app icon, buttons, and home screen palette.
+- Preserved all five shortcuts, including Favorites, with the same actions.
 
-O botão Favoritos abre o Waze e orienta o utilizador para Guardados; a aplicação Waze não disponibiliza um link público direto para a lista.
+Favorites opens Waze and prompts the user to open Saved. Waze does not provide a public deep link to the full favorites list.

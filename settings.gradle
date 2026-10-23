@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'RotaRapida'
+rootProject.name = 'QuickRoute'
 include ':app'

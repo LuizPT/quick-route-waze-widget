@@ -1,37 +1,35 @@
-# Rota Rápida
+# Quick Route
 
-Widget Android em português para os atalhos Casa, Trabalho, Favoritos, abrir o Waze e pesquisar. Compatível com launchers Android e concebido para ser adicionado à área personalizável do Dashline.
+An Android home screen widget with one tap shortcuts for Home, Work, Favorites, opening Waze, and search. Works with Android launchers and is designed for Dashline's customizable home screen.
 
 ## Widget
 
-![Widget Rota Rápida em formato horizontal](docs/screenshots/widget-cropped.png)
+![Quick Route Waze widget in wide layout](docs/screenshots/widget-cropped.png)
 
-O visual atualizado usa cartões uniformes, ícones ciano centrados e uma marca de rota coerente entre o widget, a aplicação e o ícone Android.
+The widget uses aligned icons and labels, consistent dark cards, and a cyan route mark across the widget, app, and Android launcher icon.
 
-## Usar
+## Install
 
-1. Instale o APK da [versão 1.0.1](https://github.com/LuizPT/rota-rapida-waze-widget/releases/tag/v1.0.1) e abra Rota Rápida uma vez.
-2. Instale o Waze. Os atalhos Casa e Trabalho usam os favoritos guardados na conta Waze.
-3. No Dashline, abra **Settings → Customize home screen**, adicione um widget e escolha **Rota Rápida**. Ajuste o tamanho para mostrar os cinco atalhos.
+1. Download the [Quick Route 1.1.0 APK](https://github.com/LuizPT/quick-route-waze-widget/releases/tag/v1.1.0) and open Quick Route once.
+2. Install Waze. Home and Work shortcuts use the saved destinations in your Waze account.
+3. In Dashline, open **Settings → Customize home screen**, add a widget, and choose **Quick Route**. Resize it to show all five shortcuts.
 
-O widget tem dois modos de apresentação: compacto, com os atalhos em linhas, e largo, com os cinco botões numa linha. Também pode ser adicionado a partir do seletor de widgets de outros launchers Android.
+The widget has a compact layout with shortcuts in rows and a wide layout with all five shortcuts in one row. It can also be added from the widget picker in other Android launchers.
 
-## Botão Favoritos e pesquisa
+## Favorites and search
 
-O botão **Favoritos** abre o Waze e indica para abrir **Guardados**. O Waze não publica um endereço direto para a lista completa de favoritos. Casa e Trabalho abrem os respetivos favoritos diretamente para iniciar a navegação.
+**Favorites** opens Waze and prompts you to open **Saved**. Waze does not provide a public deep link to the complete favorites list. Home and Work open their saved Waze destinations directly for navigation.
 
-O botão **Pesquisar** abre o Waze e indica para tocar na lupa. Não é usado um URL de pesquisa não documentado. A aplicação não lê nem guarda destinos e não pede localização, rede ou outros acessos.
+**Search** opens Waze and prompts you to tap the search icon. Quick Route does not rely on an undocumented search URL. It does not read or store destinations and does not request location, network, or other permissions.
 
-## Compilar e validar
+## Build and validate
 
-Requer JDK 17 ou superior e Android SDK Platform 37. O Gradle Wrapper incluído pode ser usado no Windows:
+Requires JDK 17 or later and Android SDK Platform 37. On Windows, use the included Gradle Wrapper:
 
 ```powershell
 .\gradlew.bat testDebugUnitTest lint assembleDebug assembleRelease
 ```
 
-O APK compilado fica em `app/build/outputs/apk/release/app-release.apk`; a versão assinada para instalação está nos [artefactos da versão no GitHub](https://github.com/LuizPT/rota-rapida-waze-widget/releases/tag/v1.0.1). O código de produção e os testes estão em `app/src/`. Para reproduzir a assinatura local do APK, defina `ROTA_RAPIDA_KEYSTORE`, `ROTA_RAPIDA_STORE_PASSWORD`, `ROTA_RAPIDA_KEY_ALIAS` e `ROTA_RAPIDA_KEY_PASSWORD` no ambiente antes de compilar. Neste computador, a chave está fora do projeto em `%LOCALAPPDATA%\RotaRapidaSigning`; a palavra-passe está protegida pelo Windows para a conta atual. A chave privada não está incluída no projeto nem no arquivo de fontes.
+The locally built APK is at `app/build/outputs/apk/release/app-release.apk`. The signed installable APK is available from the [GitHub release](https://github.com/LuizPT/quick-route-waze-widget/releases/tag/v1.1.0). Production code and tests are in `app/src/`. To sign a local build, set `ROTA_RAPIDA_KEYSTORE`, `ROTA_RAPIDA_STORE_PASSWORD`, `ROTA_RAPIDA_KEY_ALIAS`, and `ROTA_RAPIDA_KEY_PASSWORD` in the environment. The signing key stays outside the repository at `%LOCALAPPDATA%\RotaRapidaSigning`; its password is protected for the current Windows account. The private key is not included in the source archive.
 
-## Artefactos e validação
-
-Veja [docs/VALIDACAO.md](docs/VALIDACAO.md) para os resultados de compilação, instalação e verificação no emulador. Capturas de ecrã estão em `docs/screenshots/`.
+See [docs/VALIDATION.md](docs/VALIDATION.md) for build, installation, and emulator results. Widget screenshots are in `docs/screenshots/`.

@@ -125,7 +125,7 @@ public final class MainActivity extends Activity {
         names.addView(text(getString(R.string.app_name), 21, TEXT, true));
         names.addView(text(getString(R.string.header_subtitle), 12, MUTED, false));
         header.addView(names, new LinearLayout.LayoutParams(0, -2, 1));
-        TextView version = text("V1.0.1", 11, MINT, true);
+        TextView version = text("V1.1.0", 11, MINT, true);
         version.setGravity(Gravity.CENTER);
         version.setBackground(makeShape(0xff163747, 0xff29465b, 30));
         version.setPadding(dp(12), dp(6), dp(12), dp(6));
@@ -175,11 +175,11 @@ public final class MainActivity extends Activity {
         LinearLayout destinations = new LinearLayout(this);
         destinations.setOrientation(LinearLayout.HORIZONTAL);
         column.addView(destinations, new LinearLayout.LayoutParams(-1, dp(86)));
-        destinations.addView(actionButton(WazeAction.HOME, R.drawable.ic_home, "Casa", MINT, false),
+        destinations.addView(actionButton(WazeAction.HOME, R.drawable.ic_home, "Home", MINT, false),
                 new LinearLayout.LayoutParams(0, -1, 1));
         LinearLayout.LayoutParams workLp = new LinearLayout.LayoutParams(0, -1, 1);
         workLp.leftMargin = dp(10);
-        destinations.addView(actionButton(WazeAction.WORK, R.drawable.ic_work, "Trabalho", MINT, false), workLp);
+        destinations.addView(actionButton(WazeAction.WORK, R.drawable.ic_work, "Work", MINT, false), workLp);
 
         LinearLayout.LayoutParams noteLp = new LinearLayout.LayoutParams(-1, -2);
         noteLp.topMargin = dp(7);
@@ -190,7 +190,7 @@ public final class MainActivity extends Activity {
         LinearLayout.LayoutParams favoritesLp = new LinearLayout.LayoutParams(-1, dp(62));
         favoritesLp.topMargin = dp(9);
         column.addView(actionButton(WazeAction.FAVORITES, R.drawable.ic_favorites,
-                "Favoritos do Waze", MINT, false), favoritesLp);
+                "Waze Favorites", MINT, false), favoritesLp);
 
         TextView toolsLabel = sectionLabel(getString(R.string.waze_heading));
         LinearLayout.LayoutParams toolsHeadingLp = new LinearLayout.LayoutParams(-1, dp(28));
@@ -199,11 +199,11 @@ public final class MainActivity extends Activity {
         LinearLayout utilities = new LinearLayout(this);
         utilities.setOrientation(LinearLayout.HORIZONTAL);
         column.addView(utilities, new LinearLayout.LayoutParams(-1, dp(72)));
-        utilities.addView(actionButton(WazeAction.OPEN_WAZE, R.drawable.ic_open, "Abrir Waze", MINT, true),
+        utilities.addView(actionButton(WazeAction.OPEN_WAZE, R.drawable.ic_open, "Open Waze", MINT, true),
                 new LinearLayout.LayoutParams(0, -1, 1));
         LinearLayout.LayoutParams searchLp = new LinearLayout.LayoutParams(0, -1, 1);
         searchLp.leftMargin = dp(10);
-        utilities.addView(actionButton(WazeAction.SEARCH, R.drawable.ic_search, "Pesquisar", MINT, false), searchLp);
+        utilities.addView(actionButton(WazeAction.SEARCH, R.drawable.ic_search, "Search", MINT, false), searchLp);
         return column;
     }
 

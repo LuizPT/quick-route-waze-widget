@@ -1,11 +1,11 @@
-# Rota Rápida 1.0.0
+# Quick Route 1.0.0
 
-Widget Android em português com atalhos para Casa, Trabalho, Favoritos, abrir o Waze e pesquisar.
+The first Android widget release, originally published in Portuguese, with shortcuts for Home, Work, Favorites, opening Waze, and search.
 
-- Layout compacto e horizontal do widget.
-- Casa e Trabalho usam os favoritos pessoais guardados no Waze.
-- Favoritos abre o Waze e indica a secção Guardados.
-- Pesquisa abre o Waze e indica o botão de pesquisa.
-- APK assinado para instalação Android; código-fonte incluído como asset.
+- Compact and wide widget layouts.
+- Home and Work use personal destinations saved in Waze.
+- Favorites opens Waze and prompts the user to open Saved.
+- Search opens Waze and prompts the user to tap its search button.
+- Signed Android APK and source archive provided as release assets.
 
-Requer Waze instalado para navegação. O APK foi instalado e verificado num emulador Android API 34; a integração visual com Dashline não pôde ser ensaiada porque o Dashline não estava instalado.
+Waze must be installed for navigation. The APK was installed and checked on an Android API 34 emulator. Dashline was not installed, so its widget integration could not be tested.
