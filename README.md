@@ -6,9 +6,11 @@ Widget Android em português para os atalhos Casa, Trabalho, Favoritos, abrir o 
 
 ![Widget Rota Rápida em formato horizontal](docs/screenshots/widget-cropped.png)
 
+O visual atualizado usa cartões uniformes, ícones ciano centrados e uma marca de rota coerente entre o widget, a aplicação e o ícone Android.
+
 ## Usar
 
-1. Instale `dist/Rota-Rapida-1.0.0.apk` e abra Rota Rápida uma vez.
+1. Instale o APK da [versão 1.0.1](https://github.com/LuizPT/rota-rapida-waze-widget/releases/tag/v1.0.1) e abra Rota Rápida uma vez.
 2. Instale o Waze. Os atalhos Casa e Trabalho usam os favoritos guardados na conta Waze.
 3. No Dashline, abra **Settings → Customize home screen**, adicione um widget e escolha **Rota Rápida**. Ajuste o tamanho para mostrar os cinco atalhos.
 
@@ -28,7 +30,7 @@ Requer JDK 17 ou superior e Android SDK Platform 37. O Gradle Wrapper incluído 
 .\gradlew.bat testDebugUnitTest lint assembleDebug assembleRelease
 ```
 
-O APK final está em `dist/Rota-Rapida-1.0.0.apk`. O código de produção e os testes estão em `app/src/`. Para reproduzir a assinatura local do APK, defina `ROTA_RAPIDA_KEYSTORE`, `ROTA_RAPIDA_STORE_PASSWORD`, `ROTA_RAPIDA_KEY_ALIAS` e `ROTA_RAPIDA_KEY_PASSWORD` no ambiente antes de compilar. Neste computador, a chave está fora do projeto em `%LOCALAPPDATA%\RotaRapidaSigning`; a palavra-passe está protegida pelo Windows para a conta atual. A chave privada não está incluída no projeto nem no arquivo de fontes.
+O APK compilado fica em `app/build/outputs/apk/release/app-release.apk`; a versão assinada para instalação está nos [artefactos da versão no GitHub](https://github.com/LuizPT/rota-rapida-waze-widget/releases/tag/v1.0.1). O código de produção e os testes estão em `app/src/`. Para reproduzir a assinatura local do APK, defina `ROTA_RAPIDA_KEYSTORE`, `ROTA_RAPIDA_STORE_PASSWORD`, `ROTA_RAPIDA_KEY_ALIAS` e `ROTA_RAPIDA_KEY_PASSWORD` no ambiente antes de compilar. Neste computador, a chave está fora do projeto em `%LOCALAPPDATA%\RotaRapidaSigning`; a palavra-passe está protegida pelo Windows para a conta atual. A chave privada não está incluída no projeto nem no arquivo de fontes.
 
 ## Artefactos e validação
 

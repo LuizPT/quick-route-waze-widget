@@ -9,23 +9,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="24dp"
+        android:layout_height="30dp"
         android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_widget_mark"
+            android:contentDescription="@null" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="7dp"
             android:text="@string/widget_title"
             android:textColor="@color/widget_text"
-            android:textSize="13sp"
+            android:textSize="14sp"
+            android:fontFamily="sans"
             android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/widget_badge"
             android:text="@string/widget_subtitle"
-            android:textColor="@color/widget_muted"
-            android:textSize="11sp"
-            android:letterSpacing="0.12" />
+            android:textColor="@color/widget_accent"
+            android:textSize="9sp"
+            android:fontFamily="sans"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
     </LinearLayout>
 
     <LinearLayout
@@ -34,8 +48,14 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingTop="5dp">
-        <TextView android:id="@+id/action_home" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="4dp" android:background="@drawable/widget_tile_home" android:drawableStart="@drawable/ic_home" android:text="@string/widget_home" android:contentDescription="@string/widget_home" android:textColor="@color/widget_text" />
-        <TextView android:id="@+id/action_work" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="4dp" android:background="@drawable/widget_tile_primary" android:drawableStart="@drawable/ic_work" android:text="@string/widget_work" android:contentDescription="@string/widget_work" android:textColor="@color/widget_text" />
+        <LinearLayout android:id="@+id/action_home" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile_home" android:contentDescription="@string/widget_home">
+            <ImageView style="@style/WidgetActionIconCompact" android:src="@drawable/ic_home" />
+            <TextView style="@style/WidgetActionLabelCompact" android:text="@string/widget_home" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/action_work" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:background="@drawable/widget_tile_primary" android:contentDescription="@string/widget_work">
+            <ImageView style="@style/WidgetActionIconCompact" android:src="@drawable/ic_work" />
+            <TextView style="@style/WidgetActionLabelCompact" android:text="@string/widget_work" />
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,8 +63,14 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingTop="5dp">
-        <TextView android:id="@+id/action_favorites" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="4dp" android:background="@drawable/widget_tile_home" android:drawableStart="@drawable/ic_favorites" android:text="@string/widget_favorites" android:contentDescription="@string/widget_favorites" android:textColor="@color/widget_text" />
-        <TextView android:id="@+id/action_open" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="4dp" android:background="@drawable/widget_tile_primary" android:drawableStart="@drawable/ic_open" android:text="@string/widget_open" android:contentDescription="@string/widget_open" android:textColor="@color/widget_text" />
+        <LinearLayout android:id="@+id/action_favorites" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile" android:contentDescription="@string/widget_favorites">
+            <ImageView style="@style/WidgetActionIconCompact" android:src="@drawable/ic_favorites" />
+            <TextView style="@style/WidgetActionLabelCompact" android:text="@string/widget_favorites" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/action_open" style="@style/WidgetActionCompact" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:background="@drawable/widget_tile_primary" android:contentDescription="@string/widget_open">
+            <ImageView style="@style/WidgetActionIconCompact" android:src="@drawable/ic_open" />
+            <TextView style="@style/WidgetActionLabelCompact" android:text="@string/widget_open" />
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,6 +78,9 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingTop="5dp">
-        <TextView android:id="@+id/action_search" style="@style/WidgetActionCompact" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_tile" android:drawableStart="@drawable/ic_search" android:text="@string/widget_search" android:contentDescription="@string/widget_search" android:textColor="@color/widget_text" />
+        <LinearLayout android:id="@+id/action_search" style="@style/WidgetActionCompact" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_tile" android:contentDescription="@string/widget_search">
+            <ImageView style="@style/WidgetActionIconCompact" android:src="@drawable/ic_search" />
+            <TextView style="@style/WidgetActionLabelCompact" android:text="@string/widget_search" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,9 +1,10 @@
 <resources>
-    <color name="widget_background">#121B26</color>
-    <color name="widget_stroke">#2A3948</color>
-    <color name="widget_text">#F1F6FA</color>
-    <color name="widget_muted">#99AABA</color>
-    <color name="widget_mint_bg">#143932</color>
-    <color name="widget_amber_bg">#39291E</color>
-    <color name="widget_tile">#192533</color>
+    <color name="widget_background">#111D2A</color>
+    <color name="widget_stroke">#2A4052</color>
+    <color name="widget_text">#F5FAFF</color>
+    <color name="widget_muted">#9EB2C4</color>
+    <color name="widget_accent">#33CCFF</color>
+    <color name="widget_accent_soft">#163747</color>
+    <color name="widget_tile">#172A3B</color>
+    <color name="widget_tile_stroke">#29465B</color>
 </resources>

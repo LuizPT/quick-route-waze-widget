@@ -24,7 +24,7 @@ public final class MainActivity extends Activity {
     private static final int STROKE = Color.rgb(42, 57, 72);
     private static final int TEXT = Color.rgb(241, 246, 250);
     private static final int MUTED = Color.rgb(153, 170, 186);
-    private static final int MINT = Color.rgb(158, 233, 210);
+    private static final int MINT = Color.rgb(51, 204, 255);
     private static final int AMBER = Color.rgb(255, 190, 131);
     private TextView status;
     private TextView statusDetail;
@@ -115,7 +115,7 @@ public final class MainActivity extends Activity {
         LinearLayout header = new LinearLayout(this);
         header.setGravity(Gravity.CENTER_VERTICAL);
         android.widget.ImageView mark = new android.widget.ImageView(this);
-        mark.setBackground(makeShape(MINT, STROKE, 17));
+        mark.setBackground(makeShape(Color.rgb(22, 55, 71), Color.rgb(42, 70, 91), 17));
         mark.setImageResource(R.drawable.ic_route_mark);
         mark.setPadding(dp(10), dp(10), dp(10), dp(10));
         header.addView(mark, new LinearLayout.LayoutParams(dp(48), dp(48)));
@@ -125,9 +125,9 @@ public final class MainActivity extends Activity {
         names.addView(text(getString(R.string.app_name), 21, TEXT, true));
         names.addView(text(getString(R.string.header_subtitle), 12, MUTED, false));
         header.addView(names, new LinearLayout.LayoutParams(0, -2, 1));
-        TextView version = text("V1.0", 11, MINT, true);
+        TextView version = text("V1.0.1", 11, MINT, true);
         version.setGravity(Gravity.CENTER);
-        version.setBackground(makeShape(0xff142a29, 0xff224442, 30));
+        version.setBackground(makeShape(0xff163747, 0xff29465b, 30));
         version.setPadding(dp(12), dp(6), dp(12), dp(6));
         header.addView(version);
         return header;
@@ -175,7 +175,7 @@ public final class MainActivity extends Activity {
         LinearLayout destinations = new LinearLayout(this);
         destinations.setOrientation(LinearLayout.HORIZONTAL);
         column.addView(destinations, new LinearLayout.LayoutParams(-1, dp(86)));
-        destinations.addView(actionButton(WazeAction.HOME, R.drawable.ic_home, "Casa", AMBER, false),
+        destinations.addView(actionButton(WazeAction.HOME, R.drawable.ic_home, "Casa", MINT, false),
                 new LinearLayout.LayoutParams(0, -1, 1));
         LinearLayout.LayoutParams workLp = new LinearLayout.LayoutParams(0, -1, 1);
         workLp.leftMargin = dp(10);
@@ -190,7 +190,7 @@ public final class MainActivity extends Activity {
         LinearLayout.LayoutParams favoritesLp = new LinearLayout.LayoutParams(-1, dp(62));
         favoritesLp.topMargin = dp(9);
         column.addView(actionButton(WazeAction.FAVORITES, R.drawable.ic_favorites,
-                "Favoritos do Waze", AMBER, false), favoritesLp);
+                "Favoritos do Waze", MINT, false), favoritesLp);
 
         TextView toolsLabel = sectionLabel(getString(R.string.waze_heading));
         LinearLayout.LayoutParams toolsHeadingLp = new LinearLayout.LayoutParams(-1, dp(28));
@@ -203,7 +203,7 @@ public final class MainActivity extends Activity {
                 new LinearLayout.LayoutParams(0, -1, 1));
         LinearLayout.LayoutParams searchLp = new LinearLayout.LayoutParams(0, -1, 1);
         searchLp.leftMargin = dp(10);
-        utilities.addView(actionButton(WazeAction.SEARCH, R.drawable.ic_search, "Pesquisar", TEXT, false), searchLp);
+        utilities.addView(actionButton(WazeAction.SEARCH, R.drawable.ic_search, "Pesquisar", MINT, false), searchLp);
         return column;
     }
 
@@ -219,8 +219,8 @@ public final class MainActivity extends Activity {
         button.setOrientation(LinearLayout.HORIZONTAL);
         button.setGravity(Gravity.CENTER);
         button.setPadding(dp(10), dp(8), dp(10), dp(8));
-        button.setBackground(makeShape(primary ? 0xff143932 : SURFACE_HI,
-                primary ? 0xff2e655a : STROKE, 15));
+        button.setBackground(makeShape(primary ? 0xff163747 : SURFACE_HI,
+                primary ? 0xff2a7897 : STROKE, 15));
         android.widget.ImageView icon = new android.widget.ImageView(this);
         icon.setImageResource(iconResource);
         icon.setColorFilter(iconColor);
