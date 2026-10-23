@@ -1,17 +1,17 @@
-# Quick Route 1.1.0 Validation
+# Quick Route 1.2.0 Validation
 
-## Build and tests
+## Build and interface
 
-- `testDebugUnitTest`: passed; covers Home and Work links, five unique actions, and widget layout selection.
-- `lint`: passed with no issues.
-- `assembleDebug` and `assembleRelease`: passed with Android SDK Platform 37.
-- The signed 1.1.0 APK replaced version 1.0.1 and launched on an Android API 34 emulator at 1920 × 720 landscape; the package reports `versionCode 3` and `versionName 1.1.0`.
-- Android Package Manager recognized `QuickActionsWidgetProvider` as a home screen widget provider.
-- Compact and wide layouts were rendered and visually inspected in the emulator. Both show all five shortcuts with centered icons and labels, consistent cards, and the cyan route mark.
-- Cropped capture of the widget `RemoteViews`: [widget-cropped.png](screenshots/widget-cropped.png).
+- `testDebugUnitTest`, `lint`, and `assembleDebug` passed with Android SDK Platform 37.
+- The 1.2.0 release APK was signed with the existing local key and upgraded version 1.1.0 on the Android API 34 emulator.
+- The emulator rendered the widget at its wide size and at a simulated 208 × 208 dp compact size. Each of the three action tiles remained square and equal in both previews.
+- Portuguese and English were switched in the app. App labels and widget labels changed to the selected language, and the selection remained after restarting the app.
+- The Android-rendered widget capture is [widget-cropped.png](screenshots/widget-cropped.png).
 
-## Test limitations
+## Limits
 
-Waze and Dashline were not installed in the emulator. A real navigation launch, adding the widget inside Dashline, and checking saved destinations in a Waze account could not be tested. The image shows the Android-rendered widget layout; it does not show the widget placed inside Dashline.
+Waze and Dashline were not installed in the emulator. Navigation into a real Waze account and placement inside Dashline could not be tested. The compact preview simulates widget dimensions with Android `RemoteViews`; the 2 × 2 placement still needs a final check on the target Dashline launcher and screen.
 
-The distributed APK is signed with a local installation key. The private key is stored outside the project at `%LOCALAPPDATA%\RotaRapidaSigning` and is not included in the source archive. Keep a secure backup of this key to publish updates that can replace this installation.
+On Android 12 and later, tile size adjusts to the widget dimensions. Older Android versions keep 60 dp square tiles; the minimum widget size is set to fit those tiles in a compact area.
+
+The APK uses the project's existing local signing key. Keep a secure backup of that key to install future updates over this release.

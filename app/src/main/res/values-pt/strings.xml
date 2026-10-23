@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Quick Route</string>
+    <string name="header_subtitle">Navegue com o Waze</string>
+    <string name="intro_eyebrow">NAVEGAÇÃO NUM TOQUE</string>
+    <string name="intro_title">O seu próximo destino, num toque.</string>
+    <string name="intro_body">Aceda aos destinos Casa e Trabalho guardados no Waze ou abra a aplicação para mais opções.</string>
+    <string name="destinations_heading">ATALHOS DE ROTA</string>
+    <string name="waze_ready_detail">Casa e Trabalho usam os destinos guardados na sua conta Waze.</string>
+    <string name="independent_notice">Aplicação independente. Não afiliada com a Google ou o Waze.</string>
+    <string name="waze_ready">O Waze está disponível neste dispositivo</string>
+    <string name="waze_missing">Waze não encontrado</string>
+    <string name="waze_missing_detail">Instale o Waze para usar os atalhos de navegação. Os botões e o widget continuam disponíveis.</string>
+    <string name="waze_missing_toast">O Waze não está instalado. Instale-o para usar este atalho.</string>
+    <string name="waze_routing_issue">Confirme que o destino está guardado no Waze e tente novamente.</string>
+    <string name="widget_home">Casa</string>
+    <string name="widget_work">Trabalho</string>
+    <string name="widget_open">Abrir Waze</string>
+    <string name="widget_description">Atalhos para Casa, Trabalho e abrir o Waze</string>
+    <string name="language_portuguese">Português</string>
+    <string name="language_english">English</string>
+</resources>

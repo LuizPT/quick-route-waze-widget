@@ -12,9 +12,7 @@ public class WazeActionTest {
     }
 
     @Test public void appActionsDoNotInventDeepLinks() {
-        assertNull(WazeAction.FAVORITES.deepLink());
         assertNull(WazeAction.OPEN_WAZE.deepLink());
-        assertNull(WazeAction.SEARCH.deepLink());
     }
 
     @Test public void everyActionHasAUniqueKeyAndPendingIntentCode() {
@@ -24,12 +22,12 @@ public class WazeActionTest {
             assertTrue(keys.add(action.key()));
             assertTrue(codes.add(action.requestCode()));
         }
-        assertEquals(5, keys.size());
+        assertEquals(3, keys.size());
     }
 
     @Test public void unknownWidgetActionFallsBackToOpenWaze() {
         assertSame(WazeAction.OPEN_WAZE, WazeAction.fromKey("unknown"));
         assertSame(WazeAction.OPEN_WAZE, WazeAction.fromKey(null));
-        assertSame(WazeAction.FAVORITES, WazeAction.fromKey("favorites"));
+        assertSame(WazeAction.OPEN_WAZE, WazeAction.fromKey("favorites"));
     }
 }

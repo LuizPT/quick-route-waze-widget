@@ -1,74 +1,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/widget_card"
-    tools:ignore="NestedWeights">
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="@drawable/widget_card">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_vertical">
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:src="@drawable/ic_widget_mark"
-            android:contentDescription="@null" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="7dp"
-            android:text="@string/widget_title"
-            android:textColor="@color/widget_text"
-            android:textSize="14sp"
-            android:fontFamily="sans"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="9dp"
-            android:paddingEnd="9dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:background="@drawable/widget_badge"
-            android:text="@string/widget_subtitle"
-            android:textColor="@color/widget_accent"
-            android:textSize="9sp"
-            android:fontFamily="sans"
-            android:textStyle="bold"
-            android:letterSpacing="0.08" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:id="@+id/action_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingTop="7dp">
+        android:gravity="center">
 
-        <LinearLayout android:id="@+id/action_home" style="@style/WidgetActionWide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile_home" android:contentDescription="@string/widget_home">
-            <ImageView style="@style/WidgetActionIconWide" android:src="@drawable/ic_home" />
-            <TextView style="@style/WidgetActionLabelWide" android:text="@string/widget_home" />
+        <LinearLayout
+            android:id="@+id/action_home"
+            style="@style/WidgetActionTile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/widget_tile">
+            <ImageView
+                android:id="@+id/icon_home"
+                style="@style/WidgetActionTileIcon"
+                android:src="@drawable/ic_home" />
+            <TextView
+                android:id="@+id/label_home"
+                style="@style/WidgetActionTileLabel"
+                android:text="@string/widget_home" />
         </LinearLayout>
-        <LinearLayout android:id="@+id/action_work" style="@style/WidgetActionWide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile_primary" android:contentDescription="@string/widget_work">
-            <ImageView style="@style/WidgetActionIconWide" android:src="@drawable/ic_work" />
-            <TextView style="@style/WidgetActionLabelWide" android:text="@string/widget_work" />
+
+        <LinearLayout
+            android:id="@+id/action_work"
+            style="@style/WidgetActionTile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/widget_tile">
+            <ImageView
+                android:id="@+id/icon_work"
+                style="@style/WidgetActionTileIcon"
+                android:src="@drawable/ic_work" />
+            <TextView
+                android:id="@+id/label_work"
+                style="@style/WidgetActionTileLabel"
+                android:text="@string/widget_work" />
         </LinearLayout>
-        <LinearLayout android:id="@+id/action_favorites" style="@style/WidgetActionWide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile" android:contentDescription="@string/widget_favorites">
-            <ImageView style="@style/WidgetActionIconWide" android:src="@drawable/ic_favorites" />
-            <TextView style="@style/WidgetActionLabelWide" android:text="@string/widget_favorites" />
-        </LinearLayout>
-        <LinearLayout android:id="@+id/action_open" style="@style/WidgetActionWide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:layout_marginEnd="3dp" android:background="@drawable/widget_tile_primary" android:contentDescription="@string/widget_open">
-            <ImageView style="@style/WidgetActionIconWide" android:src="@drawable/ic_open" />
-            <TextView style="@style/WidgetActionLabelWide" android:text="@string/widget_open" />
-        </LinearLayout>
-        <LinearLayout android:id="@+id/action_search" style="@style/WidgetActionWide" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="3dp" android:background="@drawable/widget_tile" android:contentDescription="@string/widget_search">
-            <ImageView style="@style/WidgetActionIconWide" android:src="@drawable/ic_search" />
-            <TextView style="@style/WidgetActionLabelWide" android:text="@string/widget_search" />
+
+        <LinearLayout
+            android:id="@+id/action_open"
+            style="@style/WidgetActionTile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/widget_tile">
+            <ImageView
+                android:id="@+id/icon_open"
+                style="@style/WidgetActionTileIcon"
+                android:src="@drawable/ic_open" />
+            <TextView
+                android:id="@+id/label_open"
+                style="@style/WidgetActionTileLabel"
+                android:text="@string/widget_open" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

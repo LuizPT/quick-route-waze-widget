@@ -1,12 +1,10 @@
 package pt.rotarapida.waze;
 
-/** The five public actions exposed by the app and its home-screen widget. */
+/** The three navigation actions exposed by the app and its home-screen widget. */
 public enum WazeAction {
     HOME(101, "home"),
     WORK(102, "work"),
-    FAVORITES(103, "favorites"),
-    OPEN_WAZE(104, "open"),
-    SEARCH(105, "search");
+    OPEN_WAZE(104, "open");
 
     private final int requestCode;
     private final String key;

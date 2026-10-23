@@ -2,6 +2,7 @@ package pt.rotarapida.waze;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -10,8 +11,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -28,6 +31,11 @@ public final class MainActivity extends Activity {
     private static final int AMBER = Color.rgb(255, 190, 131);
     private TextView status;
     private TextView statusDetail;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(AppLanguage.wrap(base));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,23 +122,55 @@ public final class MainActivity extends Activity {
     private View buildHeader() {
         LinearLayout header = new LinearLayout(this);
         header.setGravity(Gravity.CENTER_VERTICAL);
-        android.widget.ImageView mark = new android.widget.ImageView(this);
+        ImageView mark = new ImageView(this);
         mark.setBackground(makeShape(Color.rgb(22, 55, 71), Color.rgb(42, 70, 91), 17));
         mark.setImageResource(R.drawable.ic_route_mark);
         mark.setPadding(dp(10), dp(10), dp(10), dp(10));
         header.addView(mark, new LinearLayout.LayoutParams(dp(48), dp(48)));
+
         LinearLayout names = new LinearLayout(this);
         names.setOrientation(LinearLayout.VERTICAL);
-        names.setPadding(dp(14), 0, 0, 0);
+        names.setPadding(dp(14), 0, dp(8), 0);
         names.addView(text(getString(R.string.app_name), 21, TEXT, true));
         names.addView(text(getString(R.string.header_subtitle), 12, MUTED, false));
         header.addView(names, new LinearLayout.LayoutParams(0, -2, 1));
-        TextView version = text("V1.1.0", 11, MINT, true);
-        version.setGravity(Gravity.CENTER);
-        version.setBackground(makeShape(0xff163747, 0xff29465b, 30));
-        version.setPadding(dp(12), dp(6), dp(12), dp(6));
-        header.addView(version);
+
+        LinearLayout languages = new LinearLayout(this);
+        languages.setGravity(Gravity.CENTER_VERTICAL);
+        languages.addView(languageButton("PT", R.drawable.flag_portugal, "pt"));
+        LinearLayout.LayoutParams englishLp = new LinearLayout.LayoutParams(-2, dp(38));
+        englishLp.leftMargin = dp(5);
+        languages.addView(languageButton("EN", R.drawable.flag_uk, "en"), englishLp);
+        header.addView(languages);
         return header;
+    }
+
+    private View languageButton(String code, int flag, String language) {
+        boolean selected = AppLanguage.currentCode(this).equals(language);
+        LinearLayout button = new LinearLayout(this);
+        button.setGravity(Gravity.CENTER);
+        button.setOrientation(LinearLayout.HORIZONTAL);
+        button.setPadding(dp(9), 0, dp(9), 0);
+        button.setBackground(makeShape(selected ? 0xff163747 : SURFACE_HI,
+                selected ? 0xff2a7897 : STROKE, 14));
+        ImageView flagIcon = new ImageView(this);
+        flagIcon.setImageResource(flag);
+        button.addView(flagIcon, new LinearLayout.LayoutParams(dp(20), dp(14)));
+        TextView label = text(code, 11, selected ? MINT : MUTED, true);
+        LinearLayout.LayoutParams labelLp = new LinearLayout.LayoutParams(-2, -2);
+        labelLp.leftMargin = dp(5);
+        button.addView(label, labelLp);
+        button.setContentDescription(getString(language.equals("pt")
+                ? R.string.language_portuguese : R.string.language_english));
+        button.setClickable(true);
+        button.setFocusable(true);
+        button.setOnClickListener(view -> {
+            if (!AppLanguage.currentCode(this).equals(language)) {
+                AppLanguage.select(this, language);
+                recreate();
+            }
+        });
+        return button;
     }
 
     private LinearLayout buildIntroPanel() {
@@ -172,38 +212,16 @@ public final class MainActivity extends Activity {
         LinearLayout column = new LinearLayout(this);
         column.setOrientation(LinearLayout.VERTICAL);
         column.addView(sectionLabel(getString(R.string.destinations_heading)));
-        LinearLayout destinations = new LinearLayout(this);
-        destinations.setOrientation(LinearLayout.HORIZONTAL);
-        column.addView(destinations, new LinearLayout.LayoutParams(-1, dp(86)));
-        destinations.addView(actionButton(WazeAction.HOME, R.drawable.ic_home, "Home", MINT, false),
-                new LinearLayout.LayoutParams(0, -1, 1));
-        LinearLayout.LayoutParams workLp = new LinearLayout.LayoutParams(0, -1, 1);
-        workLp.leftMargin = dp(10);
-        destinations.addView(actionButton(WazeAction.WORK, R.drawable.ic_work, "Work", MINT, false), workLp);
-
-        LinearLayout.LayoutParams noteLp = new LinearLayout.LayoutParams(-1, -2);
-        noteLp.topMargin = dp(7);
-        TextView favoriteNote = text(getString(R.string.favorite_note), 11, MUTED, false);
-        favoriteNote.setLineSpacing(dp(2), 1f);
-        column.addView(favoriteNote, noteLp);
-
-        LinearLayout.LayoutParams favoritesLp = new LinearLayout.LayoutParams(-1, dp(62));
-        favoritesLp.topMargin = dp(9);
-        column.addView(actionButton(WazeAction.FAVORITES, R.drawable.ic_favorites,
-                "Waze Favorites", MINT, false), favoritesLp);
-
-        TextView toolsLabel = sectionLabel(getString(R.string.waze_heading));
-        LinearLayout.LayoutParams toolsHeadingLp = new LinearLayout.LayoutParams(-1, dp(28));
-        toolsHeadingLp.topMargin = dp(12);
-        column.addView(toolsLabel, toolsHeadingLp);
-        LinearLayout utilities = new LinearLayout(this);
-        utilities.setOrientation(LinearLayout.HORIZONTAL);
-        column.addView(utilities, new LinearLayout.LayoutParams(-1, dp(72)));
-        utilities.addView(actionButton(WazeAction.OPEN_WAZE, R.drawable.ic_open, "Open Waze", MINT, true),
-                new LinearLayout.LayoutParams(0, -1, 1));
-        LinearLayout.LayoutParams searchLp = new LinearLayout.LayoutParams(0, -1, 1);
-        searchLp.leftMargin = dp(10);
-        utilities.addView(actionButton(WazeAction.SEARCH, R.drawable.ic_search, "Search", MINT, false), searchLp);
+        SquareActionRow row = new SquareActionRow();
+        row.addView(actionTile(WazeAction.HOME, R.drawable.ic_home,
+                getString(R.string.widget_home), false));
+        row.addView(actionTile(WazeAction.WORK, R.drawable.ic_work,
+                getString(R.string.widget_work), false));
+        row.addView(actionTile(WazeAction.OPEN_WAZE, R.drawable.ic_open,
+                getString(R.string.widget_open), true));
+        LinearLayout.LayoutParams rowLp = new LinearLayout.LayoutParams(-1, -2);
+        rowLp.topMargin = dp(8);
+        column.addView(row, rowLp);
         return column;
     }
 
@@ -213,31 +231,66 @@ public final class MainActivity extends Activity {
         return label;
     }
 
-    private View actionButton(WazeAction action, int iconResource, String label, int iconColor,
-                              boolean primary) {
-        LinearLayout button = new LinearLayout(this);
-        button.setOrientation(LinearLayout.HORIZONTAL);
-        button.setGravity(Gravity.CENTER);
-        button.setPadding(dp(10), dp(8), dp(10), dp(8));
-        button.setBackground(makeShape(primary ? 0xff163747 : SURFACE_HI,
-                primary ? 0xff2a7897 : STROKE, 15));
-        android.widget.ImageView icon = new android.widget.ImageView(this);
+    private View actionTile(WazeAction action, int iconResource, String label, boolean primary) {
+        LinearLayout tile = new LinearLayout(this);
+        tile.setOrientation(LinearLayout.VERTICAL);
+        tile.setGravity(Gravity.CENTER);
+        tile.setPadding(dp(6), dp(6), dp(6), dp(6));
+        tile.setBackground(makeShape(primary ? 0xff163747 : SURFACE_HI,
+                primary ? 0xff2a7897 : STROKE, 17));
+        ImageView icon = new ImageView(this);
         icon.setImageResource(iconResource);
-        icon.setColorFilter(iconColor);
-        button.addView(icon, new LinearLayout.LayoutParams(dp(30), dp(30)));
-        TextView name = text(label, 14, primary ? MINT : TEXT, true);
-        name.setGravity(Gravity.CENTER_VERTICAL);
-        name.setMaxLines(1);
-        LinearLayout.LayoutParams nameLp = new LinearLayout.LayoutParams(-2, -1);
-        nameLp.leftMargin = dp(5);
-        button.addView(name, nameLp);
-        button.setClickable(true);
-        button.setFocusable(true);
+        icon.setColorFilter(MINT);
+        tile.addView(icon, new LinearLayout.LayoutParams(dp(32), dp(32)));
+        TextView name = text(label, 12, primary ? MINT : TEXT, true);
+        name.setGravity(Gravity.CENTER);
+        name.setMaxLines(2);
+        LinearLayout.LayoutParams nameLp = new LinearLayout.LayoutParams(-1, -2);
+        nameLp.topMargin = dp(7);
+        tile.addView(name, nameLp);
+        tile.setClickable(true);
+        tile.setFocusable(true);
+        tile.setContentDescription(label);
         if (Build.VERSION.SDK_INT >= 23) {
-            button.setForeground(getDrawableCompat(android.R.drawable.list_selector_background));
+            tile.setForeground(getDrawableCompat(android.R.drawable.list_selector_background));
         }
-        button.setOnClickListener(view -> performAction(action));
-        return button;
+        tile.setOnClickListener(view -> performAction(action));
+        return tile;
+    }
+
+    private final class SquareActionRow extends ViewGroup {
+        private int side;
+        private final int gap = dp(8);
+
+        SquareActionRow() {
+            super(MainActivity.this);
+            setClipChildren(false);
+        }
+
+        @Override
+        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+            int width = MeasureSpec.getSize(widthMeasureSpec);
+            int maxSide = dp(152);
+            side = Math.min(maxSide, Math.max(0, (width - 2 * gap) / 3));
+            int exactSide = MeasureSpec.makeMeasureSpec(side, MeasureSpec.EXACTLY);
+            for (int i = 0; i < getChildCount(); i++) {
+                getChildAt(i).measure(exactSide, exactSide);
+            }
+            int desiredHeight = side;
+            int height = resolveSize(desiredHeight, heightMeasureSpec);
+            setMeasuredDimension(resolveSize(width, widthMeasureSpec), height);
+        }
+
+        @Override
+        protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+            int groupWidth = 3 * side + 2 * gap;
+            int x = Math.max(0, (getWidth() - groupWidth) / 2);
+            int y = (getHeight() - side) / 2;
+            for (int i = 0; i < getChildCount(); i++) {
+                getChildAt(i).layout(x, y, x + side, y + side);
+                x += side + gap;
+            }
+        }
     }
 
     private void performAction(WazeAction action) {
@@ -245,11 +298,6 @@ public final class MainActivity extends Activity {
             updateStatus(true);
             Toast.makeText(this, R.string.waze_missing_toast, Toast.LENGTH_LONG).show();
             return;
-        }
-        if (action == WazeAction.SEARCH) {
-            Toast.makeText(this, R.string.search_hint, Toast.LENGTH_LONG).show();
-        } else if (action == WazeAction.FAVORITES) {
-            Toast.makeText(this, R.string.favorites_hint, Toast.LENGTH_LONG).show();
         }
         try {
             startActivity(WazeLauncher.navigationIntent(this, action));
@@ -265,7 +313,7 @@ public final class MainActivity extends Activity {
             status.setText(R.string.waze_ready);
             status.setTextColor(MINT);
             statusDetail.setText(showMissingMessage
-                    ? R.string.waze_routing_issue : R.string.favorite_note);
+                    ? R.string.waze_routing_issue : R.string.waze_ready_detail);
         } else {
             status.setText(R.string.waze_missing);
             status.setTextColor(AMBER);

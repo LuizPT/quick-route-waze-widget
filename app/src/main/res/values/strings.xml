@@ -1,26 +1,21 @@
 <resources>
     <string name="app_name">Quick Route</string>
-    <string name="header_subtitle">Waze navigation shortcuts</string>
+    <string name="header_subtitle">Navigate with Waze</string>
     <string name="intro_eyebrow">NAVIGATION, ONE TAP AWAY</string>
     <string name="intro_title">Your next destination, one tap away.</string>
     <string name="intro_body">Jump to your saved Home and Work destinations in Waze, or open the app for more options.</string>
-    <string name="destinations_heading">YOUR WAZE DESTINATIONS</string>
-    <string name="waze_heading">WAZE</string>
-    <string name="favorite_note">Save Home and Work in Waze › Saved. Favorites opens Waze so you can choose Saved. Quick Route does not read or store your destinations.</string>
+    <string name="destinations_heading">ROUTE SHORTCUTS</string>
+    <string name="waze_ready_detail">Home and Work shortcuts use destinations saved in your Waze account.</string>
     <string name="independent_notice">Independent app. Not affiliated with Google or Waze.</string>
     <string name="waze_ready">Waze is available on this device</string>
     <string name="waze_missing">Waze not found</string>
     <string name="waze_missing_detail">Install Waze to use navigation shortcuts. The buttons and widget remain available.</string>
     <string name="waze_missing_toast">Waze is not installed. Install it to use this shortcut.</string>
     <string name="waze_routing_issue">Check that the selected destination is saved in Waze, then try again.</string>
-    <string name="search_hint">Waze does not provide a public link to open search. Tap the search icon in the app.</string>
-    <string name="favorites_hint">In Waze, open Saved to view your favorites.</string>
-    <string name="widget_title">Quick Route</string>
-    <string name="widget_subtitle">WAZE SHORTCUTS</string>
     <string name="widget_home">Home</string>
     <string name="widget_work">Work</string>
-    <string name="widget_favorites">Favorites</string>
     <string name="widget_open">Open Waze</string>
-    <string name="widget_search">Search</string>
-    <string name="widget_description">Home, Work, Favorites, Open Waze, and Search</string>
+    <string name="widget_description">Home, Work, and Open Waze shortcuts</string>
+    <string name="language_portuguese">Português</string>
+    <string name="language_english">English</string>
 </resources>

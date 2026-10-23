@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 /** Small transparent trampoline so widget taps can report a missing Waze install. */
 public final class NavigationActivity extends Activity {
@@ -22,11 +21,6 @@ public final class NavigationActivity extends Activity {
             return;
         }
 
-        if (action == WazeAction.SEARCH) {
-            Toast.makeText(this, R.string.search_hint, Toast.LENGTH_LONG).show();
-        } else if (action == WazeAction.FAVORITES) {
-            Toast.makeText(this, R.string.favorites_hint, Toast.LENGTH_LONG).show();
-        }
         try {
             startActivity(WazeLauncher.navigationIntent(this, action));
         } catch (ActivityNotFoundException exception) {
